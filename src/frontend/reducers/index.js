@@ -8,7 +8,7 @@ const reducer = (state, action) => {
     case 'DELETE_FAVORITE':
       return {
         ...state,
-        myList: state.myList.filter(items => items.id !== action.payload),
+        myList: state.myList.filter(items => items._id !== action.payload),
       };
     case 'LOGIN_REQUEST':
       return {
@@ -29,8 +29,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         playing: state.trends.find(item => item.id === Number(action.payload)) ||
-        state.originals.find(item => item.id === Number(action.payload)) ||
-        [],
+          state.originals.find(item => item.id === Number(action.payload)) ||
+          [],
       };
     default:
       return state;

@@ -4,30 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-cli --config webpack.config.js",
     "start:dev": "nodemon src/server/index",
-    "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix"
+    "lint": "eslint src/frontend/ --ext .js --ext .jsx --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
     "@babel/register": "^7.8.3",
+    "@hapi/boom": "^9.1.0",
     "asset-require-hook": "^1.2.0",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
     "classnames": "^2.2.6",
     "compression-webpack-plugin": "^4.0.0",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "helmet": "^3.21.2",
     "history": "^4.10.1",
     "ignore-styles": "^5.0.1",
     "md5": "^2.2.1",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -37,6 +46,7 @@
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "webpack": "^4.41.5",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
@@ -48,15 +58,29 @@
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
     "eslint": "^6.8.0",
     "eslint-loader": "^4.0.2",
     "file-loader": "^4.3.0",
+    "jest": "^26.3.0",
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
+    "react-test-renderer": "^16.13.1",
     "sass-loader": "^7.3.1",
     "terser-webpack-plugin": "^2.3.3",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/frontend/__test__/setupTest.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jp|jpeg|png|gif)$": "<rootDir>/src/frontend/__mocks__/fileMock.js",
+      "\\.(scss|css|sass)$": "<rootDir>/src/frontend/__mocks__/styleMock.js"
+    }
   }
 }
