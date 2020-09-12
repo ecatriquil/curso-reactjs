@@ -1,0 +1,30 @@
+.register {
+  background: linear-gradient(#000000, #434343);
+  min-height: calc(100vh - 200px);
+
+  &__container {
+    margin: 0 auto;
+    width: 50%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 60px 68px 40px;
+
+    @media screen and (max-width: 480px) {
+      width: 80%;
+      padding: 20px 40px 40px;
+    }
+
+    a {
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
