@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import gravatar from '../utils/gravatar';
-import { logoutRequest } from '../actions';
-import '../assets/styles/components/Header.scss';
-import logo from '../assets/static/logo-platzi-video-BW2.png';
-import userIcon from '../assets/static/user-icon.png';
+import gravatar from '../../utils/gravatar';
+import { logoutRequest } from '../../actions';
+import logo from '../../assets/static/logo-platzi-video-BW2.png';
+import userIcon from '../../assets/static/user-icon.png';
+
+import './styles.scss';
 
 const Header = (props) => {
   const { user, isLogin, isRegister } = props;
@@ -20,10 +21,12 @@ const Header = (props) => {
     props.logoutRequest({});
     window.location.href = '/login';
   };
+
   const headerClass = classNames('header', {
     isLogin,
     isRegister,
   });
+
   return (
     <header className={headerClass}>
       <Link to='/'>

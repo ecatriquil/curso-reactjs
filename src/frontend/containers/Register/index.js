@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import { registerUser } from '../actions';
-import '../assets/styles/components/Register.scss';
+import Header from '../../components/Header';
+import RegisterForm from '../../components/RegisterForm';
+import { registerUser } from '../../actions';
+import './styles.scss';
 
 const Register = (props) => {
   const [form, setValues] = useState({
@@ -30,31 +31,7 @@ const Register = (props) => {
       <Header isRegister />
       <section className='register'>
         <section className='register__container'>
-          <h2>Regístrate</h2>
-          <form className='register__container--form' onSubmit={handleSubmit}>
-            <input
-              name='name'
-              className='input'
-              type='text'
-              placeholder='Nombre'
-              onChange={handleInput}
-            />
-            <input
-              name='email'
-              className='input'
-              type='text'
-              placeholder='Correo'
-              onChange={handleInput}
-            />
-            <input
-              name='password'
-              className='input'
-              type='password'
-              placeholder='Contraseña'
-              onChange={handleInput}
-            />
-            <button className='button' type='submit'>Registrarme</button>
-          </form>
+          <RegisterForm onSubmit={handleSubmit} onChange={handleInput} />
           <Link to='/login'>
             Iniciar sesión
           </Link>
