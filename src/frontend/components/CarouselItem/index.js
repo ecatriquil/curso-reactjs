@@ -4,11 +4,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { addFavorite, removeFavorite } from '../actions';
-import '../assets/styles/components/CarouselItem.scss';
-import playIcon from '../assets/static/play-icon.png';
-import plusIcon from '../assets/static/plus-icon.png';
-import removeIcon from '../assets/static/remove-icon.png';
+import { addFavorite, removeFavorite } from '../../actions';
+import playIcon from '../../assets/static/play-icon.png';
+import plusIcon from '../../assets/static/plus-icon.png';
+import removeIcon from '../../assets/static/remove-icon.png';
+
+import './styles.scss';
 
 const CarouselItem = (props) => {
   const { _id, cover, title, year, contentRating, duration, isList } = props;
@@ -17,9 +18,11 @@ const CarouselItem = (props) => {
       _id, cover, title, year, contentRating, duration,
     });
   };
+
   const handleDeleteFavorite = (itemId) => {
     props.removeFavorite(itemId);
   };
+
   return (
     <div className='carousel-item'>
       <img className='carousel-item__img' src={cover} alt={title} />
