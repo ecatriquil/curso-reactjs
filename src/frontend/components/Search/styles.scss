@@ -1,0 +1,46 @@
+.main {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+
+  @media screen and (max-width: 480px) {
+    height: 200px;
+    justify-content: flex-start;
+  }
+
+  &__title {
+    color: white;
+    font-size: 25px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+
+  input {
+    width: 70%;
+    height: 20px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    font-family: "Muli", sans-serif;
+    font-size: 16px;
+    outline: none;
+
+    @media screen and (max-width: 480px) {
+      width: 50%;
+      padding: 15px 10px;
+      font-size: 14px;
+    }
+
+    &::placeholder {
+      color: white;
+    }
+  }
+}
