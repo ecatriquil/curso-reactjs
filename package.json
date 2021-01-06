@@ -19,7 +19,7 @@
     "@babel/register": "^7.8.3",
     "@hapi/boom": "^9.1.0",
     "asset-require-hook": "^1.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.0.3",
     "classnames": "^2.2.6",
     "compression-webpack-plugin": "^4.0.0",
